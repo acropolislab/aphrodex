@@ -1,0 +1,14 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "@acropolis/docs": "0.0.0",
+    "@acropolis/aphrodex": "0.0.0",
+    "eslint-config-acme": "0.0.0",
+    "@acropolis/tsconfig": "0.0.0",
+    "@acropolis/utils": "0.0.0"
+  },
+  "changesets": [
+    "brown-geese-retire"
+  ]
+}
