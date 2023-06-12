@@ -42,9 +42,9 @@ Using Turborepo simplifies managing your design system monorepo, as you can have
 This Turborepo includes the following packages and applications:
 
 - `apps/docs`: Component documentation site with Storybook
-- `packages/@acme/core`: Core React components
-- `packages/@acme/utils`: Shared React utilities
-- `packages/@acme/tsconfig`: Shared `tsconfig.json`s used throughout the Turborepo
+- `packages/@acropolis/aphrodex`: aphrodex React components
+- `packages/@acropolis/utils`: Shared React utilities
+- `packages/@acropolis/tsconfig`: Shared `tsconfig.json`s used throughout the Turborepo
 - `packages/eslint-config-acme`: ESLint preset
 
 Each package and app is 100% [TypeScript](https://www.typescriptlang.org/). Workspaces enables us to "hoist" dependencies that are shared between packages to the root `package.json`. This means smaller `node_modules` folders and a better local dev experience. To install a dependency for the entire monorepo, use the `-w` workspaces flag with `pnpm add`.
@@ -53,21 +53,21 @@ This example sets up your `.gitignore` to exclude all generated files, other fol
 
 ### Compilation
 
-To make the core library code work across all browsers, we need to compile the raw TypeScript and React code to plain JavaScript. We can accomplish this with `tsup`, which uses `esbuild` to greatly improve performance.
+To make the aphrodex library code work across all browsers, we need to compile the raw TypeScript and React code to plain JavaScript. We can accomplish this with `tsup`, which uses `esbuild` to greatly improve performance.
 
 Running `pnpm build` from the root of the Turborepo will run the `build` command defined in each package's `package.json` file. Turborepo runs each `build` in parallel and caches & hashes the output to speed up future builds.
 
-For `acme-core`, the `build` command is the following:
+For `aphrodex`, the `build` command is the following:
 
 ```bash
 tsup src/index.tsx --format esm,cjs --dts --external react
 ```
 
-`tsup` compiles `src/index.tsx`, which exports all of the components in the design system, into both ES Modules and CommonJS formats as well as their TypeScript types. The `package.json` for `acme-core` then instructs the consumer to select the correct format:
+`tsup` compiles `src/index.tsx`, which exports all of the components in the design system, into both ES Modules and CommonJS formats as well as their TypeScript types. The `package.json` for `aphrodex` then instructs the consumer to select the correct format:
 
-```json:acme-core/package.json
+```json:aphrodex/package.json
 {
-  "name": "@acme/core",
+  "name": "@acropolis/aphrodex",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -76,10 +76,10 @@ tsup src/index.tsx --format esm,cjs --dts --external react
 }
 ```
 
-Run `pnpm build` to confirm compilation is working correctly. You should see a folder `acme-core/dist` which contains the compiled output.
+Run `pnpm build` to confirm compilation is working correctly. You should see a folder `aphrodex/dist` which contains the compiled output.
 
 ```bash
-acme-core
+aphrodex
 └── dist
     ├── index.d.ts  <-- Types
     ├── index.js    <-- CommonJS version
@@ -88,9 +88,9 @@ acme-core
 
 ## Components
 
-Each file inside of `acme-core/src` is a component inside our design system. For example:
+Each file inside of `aphrodex/src` is a component inside our design system. For example:
 
-```tsx:acme-core/src/Button.tsx
+```tsx:aphrodex/src/Button.tsx
 import * as React from 'react';
 
 export interface ButtonProps {
@@ -106,7 +106,7 @@ Button.displayName = 'Button';
 
 When adding a new file, ensure the component is also exported from the entry `index.tsx` file:
 
-```tsx:acme-core/src/index.tsx
+```tsx:aphrodex/src/index.tsx
 import * as React from "react";
 export { Button, type ButtonProps } from "./Button";
 // Add new component exports here
@@ -118,13 +118,13 @@ Storybook provides us with an interactive UI playground for our components. This
 
 - Use Vite to bundle stories instantly (in milliseconds)
 - Automatically find any stories inside the `stories/` folder
-- Support using module path aliases like `@acme-core` for imports
+- Support using module path aliases like `@acropolis-aphrodex` for imports
 - Write MDX for component documentation pages
 
 For example, here's the included Story for our `Button` component:
 
 ```js:apps/docs/stories/button.stories.mdx
-import { Button } from '@acme-core/src';
+import { Button } from '@acropolis-aphrodex/src';
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
 <Meta title="Components/Button" component={Button} />
