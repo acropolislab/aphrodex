@@ -1,5 +1,11 @@
 # @acropolis/aphrodex
 
+## 0.0.0-alpha.1
+
+### Patch Changes
+
+- Add button
+
 ## 0.0.0-alpha.0
 
 ### Patch Changes

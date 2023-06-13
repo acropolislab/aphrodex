@@ -9,7 +9,7 @@
     "clean": "rm -rf .turbo && rm -rf node_modules"
   },
   "dependencies": {
-    "@acropolis/aphrodex": "workspace:0.0.0-alpha.0",
+    "@acropolis/aphrodex": "workspace:0.0.0-alpha.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
