@@ -30,7 +30,7 @@ importers:
   apps/docs:
     dependencies:
       '@acropolis/aphrodex':
-        specifier: workspace:0.0.1-alpha.0
+        specifier: workspace:0.0.0-alpha.0
         version: link:../../packages/aphrodex
       react:
         specifier: ^18.2.0
