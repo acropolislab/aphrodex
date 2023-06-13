@@ -14,10 +14,10 @@ module.exports = {
       resolve: {
         alias: [
           {
-            find: "@acropolis/aphrodex",
+            find: "@acropolis/aphrodex-ui",
             replacement: path.resolve(
               __dirname,
-              "../../../packages/aphrodex/"
+              "../../../packages/aphrodex-ui/"
             ),
           },
         ],
