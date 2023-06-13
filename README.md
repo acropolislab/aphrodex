@@ -45,7 +45,7 @@ This Turborepo includes the following packages and applications:
 - `packages/@acropolis/aphrodex`: aphrodex React components
 - `packages/@acropolis/utils`: Shared React utilities
 - `packages/@acropolis/tsconfig`: Shared `tsconfig.json`s used throughout the Turborepo
-- `packages/eslint-config-acme`: ESLint preset
+- `packages/eslint-config-acropolis`: ESLint preset
 
 Each package and app is 100% [TypeScript](https://www.typescriptlang.org/). Workspaces enables us to "hoist" dependencies that are shared between packages to the root `package.json`. This means smaller `node_modules` folders and a better local dev experience. To install a dependency for the entire monorepo, use the `-w` workspaces flag with `pnpm add`.
 
@@ -177,10 +177,10 @@ When you push your code to GitHub, the [GitHub Action](https://github.com/change
 turbo run build --filter=docs^... && changeset publish
 ```
 
-Turborepo runs the `build` script for all publishable packages (excluding docs) and publishes the packages to npm. By default, this example includes `acme` as the npm organization. To change this, do the following:
+Turborepo runs the `build` script for all publishable packages (excluding docs) and publishes the packages to npm. By default, this example includes `acropolis` as the npm organization. To change this, do the following:
 
-- Rename folders in `packages/*` to replace `acme` with your desired scope
-- Search and replace `acme` with your desired scope
+- Rename folders in `packages/*` to replace `acropolis` with your desired scope
+- Search and replace `acropolis` with your desired scope
 - Re-run `pnpm install`
 
 To publish packages to a private npm organization scope, **remove** the following from each of the `package.json`'s
