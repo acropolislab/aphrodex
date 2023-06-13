@@ -1,4 +1,4 @@
-# @acropolis/aphrodex-ui
+# @acropolis/aphrodex
 
 ## 0.0.1-alpha.0
 
