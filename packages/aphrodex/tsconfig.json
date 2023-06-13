@@ -5,7 +5,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@aphrodex/*": ["../../packages/aphrodex/src/*"]
+      "@/*": ["../../packages/aphrodex/src/*"]
     }
   }
 }
